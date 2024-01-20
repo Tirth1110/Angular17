@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { ItemComponent } from '../item/item.component';
 
 @Component({
@@ -8,6 +8,7 @@ import { ItemComponent } from '../item/item.component';
   templateUrl: './item-list.component.html',
   styleUrl: './item-list.component.scss',
   preserveWhitespaces: true,
+  encapsulation: ViewEncapsulation.None,
 })
 export class ItemListComponent {
   items: number[] = new Array(2);

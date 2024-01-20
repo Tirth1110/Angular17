@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-item',
   standalone: true,
   imports: [],
   templateUrl: './item.component.html',
-  styleUrl: './item.component.scss'
+  styleUrl: './item.component.scss',
 })
 export class ItemComponent {
 
