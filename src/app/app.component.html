@@ -1,0 +1,26 @@
+<div class="container mt-4">
+  <button class="btn btn-primary" (click)="loginLogout()">Login</button>
+  <button class="btn btn-danger" (click)="loginLogout()">Logout</button>
+
+  @if (isLoggedIn) {
+  <h2>Hello Tirth</h2>
+  } @else{
+  <div>
+    <h2>User logout</h2>
+  </div>
+  } @switch (name) { @case ('Sun') { Sunday } @case ('Mon') { Monday } @case ('Tue') { Tuesday }
+  @case ('Wed') {
+  Wednesday } @case ('Thu') { Thursday } @case('Fri') { Friday } @case ('Sat') { Saturday } @default { Not Exists {{
+  name }}
+  } }
+
+
+  @for (student of students; track student._id) {
+  <ul>
+    <li>{{ student.id }}</li>
+    <li>{{ student.name }}</li>
+  </ul>
+  } @empty { Empty student list }
+
+  <app-item-list></app-item-list>
+</div>

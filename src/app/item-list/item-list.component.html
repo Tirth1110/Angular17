@@ -1,0 +1,32 @@
+<div class="container">
+    <h2>Here is items</h2>
+    <button class="btn btn-primary" (click)="showItems = true">Show Items</button>
+    <div class="container">
+        <div class="row">
+            @for (item of items; track i; let i = $index) {
+            <div class="col-sm-4 text-center">
+                <!-- it's Triggers using @defer first static HTML Content will be load then after app-item component will be loaded -->
+                <!-- on viewport when scroll down then data will be load  (on viewport)-->
+                <!-- on hover when mouse hover then data will be load  (on hover)-->
+                @defer (when showItems) {
+                <app-item [id]="i+1"></app-item>
+                }
+                @placeholder {
+                <div class="placeholder">
+                </div>
+                }
+                @loading {
+                <div class="placeholder">
+                    Loading...
+                </div>
+                }
+                @error {
+                <div class="error">
+                </div>
+                }
+                <!-- without @defer @placeholder will not work and must be write after  @defer block-->
+            </div>
+            }
+        </div>
+    </div>
+</div>
