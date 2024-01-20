@@ -1,0 +1,56 @@
+<div class="container mt-3">
+    Directives
+    <br>
+    <br>
+    <br>
+    <!-- If -->
+    @if (false) {
+    <h3>Tirth</h3>
+    }
+    <!-- Switch -->
+    @switch (name) {
+    @case ('Tirth') {
+    Tirth is here !
+    }
+
+    @case ('tirth') {
+    tirth is here !
+    }
+    }
+    <br>
+    <br>
+    <br>
+    <!-- For -->
+
+    @for (emp of employee; track emp.id; let i = $index) {
+    <ul>
+        <li> {{i+1}} -> {{emp.id}} - {{emp.name}}</li>
+    </ul>
+    }@empty {
+    No employee found
+    }
+
+    <br>
+    <br>
+    <br>
+    Even item
+    @for (emp of employee; track emp.id; let i = $index, e = $even, o = $odd, f = $first, l = $last, c = $count) {
+    <ul>
+        @if (f) {
+        <li class="text-warning"> #{{i+1}} -> {{emp.id}} - {{emp.name}}</li>
+        }
+        @else if (e && !f && !l) {
+        <li class="text-success"> #{{i+1}} -> {{emp.id}} - {{emp.name}}</li>
+        }
+        @else if(o && !f && !l){
+        <li class="text-danger"> #{{i+1}} -> {{emp.id}} - {{emp.name}}</li>
+        }
+        @else if (l) {
+        <li class="text-primary"> #{{i+1}} -> {{emp.id}} - {{emp.name}}</li>
+        }
+    </ul>
+    }@empty {
+    No employee found
+    }
+    Total  - {{employee.length}}
+</div>
