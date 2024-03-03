@@ -8,15 +8,11 @@
   <div>
     <h2>User logout</h2>
   </div>
-  }
-  @switch (name) { @case ('Sun') { Sunday } @case ('Mon') { Monday } @case ('Tue') { Tuesday }
-  @case ('Wed') {
-  Wednesday } @case ('Thu') { Thursday } @case('Fri') { Friday } @case ('Sat') { Saturday } @default { Not Exists {{
-  name }}
-  } }
-
-
-  @for (student of students; track student._id) {
+  } @switch (name) { @case ('Sun') { Sunday } @case ('Mon') { Monday } @case
+  ('Tue') { Tuesday } @case ('Wed') { Wednesday } @case ('Thu') { Thursday }
+  @case('Fri') { Friday } @case ('Sat') { Saturday } @default { Not Exists
+  {{ name }}
+  } } @for (student of students; track student._id) {
   <ul>
     <li>{{ student.id }}</li>
     <li>{{ student.name }}</li>
@@ -26,8 +22,27 @@
   <app-item-list></app-item-list>
 
   <!--Encapsulation   -->
-  <h1 class="blue p-3">
-    Parent Component Called
-  </h1>
+  <h1 class="blue p-3">Parent Component Called</h1>
+
+  <!-- 1. ngClass with String -->
+  <div [ngClass]="'text-dark my-3'">Hello World</div>
+
+  <!-- 2. ngClass with Array -->
+  <div [ngClass]="['text-success', 'my-3', 'fw-bold']">Hello World</div>
+
+  <!-- 3. ngClass with Object we can change on run time-->
+  <div [ngClass]="{ 'text-success': true, 'fw-medium': true }">Hello World</div>
+
+  <div class="mt-3">
+    <a routerLink="/routing-1">Routing 1</a>
+    <a [routerLink]="[{outlets:{outlet2:['routing-2-new']}}]">Routing 2</a>
+    <a [routerLink]="[{outlets:{outlet2:['routing-2-new,501']}}]">Routing 3</a>
+  </div>
+  <div class="bg-danger p-4 my-3">
+    <router-outlet></router-outlet>
+  </div>
+
+  <div class="bg-info p-4 my-3">
+    <router-outlet name="outlet2"></router-outlet>
+  </div>
 </div>
-<router-outlet></router-outlet>

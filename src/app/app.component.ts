@@ -1,5 +1,5 @@
 import { Component, HostListener, ViewEncapsulation } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { ItemListComponent } from './item-list/item-list.component';
 import { DirectivesComponent } from './directives/directives.component';
 import { CommonModule } from '@angular/common';
@@ -14,7 +14,7 @@ class Employee {
 @Component({
   selector: 'app-root',
   standalone: true, // It's work as import module.ts file , Improve performance
-  imports: [CommonModule, ItemListComponent, RouterOutlet],
+  imports: [CommonModule, ItemListComponent, RouterOutlet, RouterLink],
   templateUrl: './app.component.html', // templateUrl is high priority element rather than template
   // template : `Tirth`,
   styleUrl: './app.component.scss',
